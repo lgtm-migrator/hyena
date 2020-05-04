@@ -32,13 +32,24 @@ const main = async () => {
     }
 
     const image = await fetch(media.media_url_https);
+    const imageBuffer = await image.buffer();
     const { Labels } = await rekognition.detectLabels({
       Image: {
-        Bytes: await image.buffer()
+        Bytes: imageBuffer
       },
     }).promise();
 
     if (!(Labels?.some(({ Name }) => process.env.LABELS?.split(',').includes(Name || '')))) {
+      continue;
+    }
+
+    const { ModerationLabels } = await rekognition.detectModerationLabels({
+      Image: {
+        Bytes: imageBuffer
+      },
+    }).promise();
+
+    if (!ModerationLabels || ModerationLabels.length !== 0) {
       continue;
     }
 
