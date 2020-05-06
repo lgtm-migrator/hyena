@@ -5,18 +5,24 @@
   </a>
 </p>
 
-> By recognizing images, it can provide high quality contents as Twitter bot. It is not a bot that tweets same contents many times. This repository provides only the software. 
+> By recognizing images and retweeting, it can provide high quality contents as Twitter bot. It is not a bot that tweets same contents many times. This repository provides only the software.
 
 ### 🏠 [Homepage](https://twitter.com/bh_hyena)
 
 ## Install
 
 ```sh
-yarn install
+yarn
 cp .env.example .env
 ```
 
-And edit .env. 
+And edit .env.
+
+## Build
+
+```sh
+yarn tsc
+```
 
 ## Run
 
@@ -24,13 +30,19 @@ And edit .env.
 node dist/index.js
 ```
 
-## Development
+## Develop
 
 ```sh
 yarn tsc --watch
 ```
 
-## Linting and formatting
+## Generate disclaimer
+
+```sh
+yarn generate-disclaimer
+```
+
+## Lint and format
 
 ```sh
 yarn fix
@@ -39,7 +51,7 @@ yarn fix
 ## Run tests
 
 ```sh
-yarn run test
+yarn test
 ```
 
 ## Author
@@ -48,11 +60,16 @@ yarn run test
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/blue-hood/hyena/issues). 
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/blue-hood/hyena/issues).
 
 ## Show your support
 
 Give a ⭐️ if this project helped you!
 
-***
+## Disclaimer
+
+Please see [DISCLAIMER.md](https://github.com/blue-hood/hyena/blob/master/DISCLAIMER.md).
+
+---
+
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
