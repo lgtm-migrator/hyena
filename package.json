@@ -1,12 +1,13 @@
 {
   "name": "hyena",
   "version": "0.0.0",
-  "description": "",
-  "homepage": "",
+  "private": true,
+  "description": "Recognize images and retweet. ",
+  "homepage": "https://twitter.com/bh_hyena",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/blue-hood/hyena/issues"
   },
-  "repository": "",
+  "repository": "https://github.com/blue-hood/hyena",
   "license": "MIT",
   "author": "Hood <hato6502@gmail.com> (https://github.com/blue-hood)",
   "type": "module",
