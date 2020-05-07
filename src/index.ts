@@ -1,14 +1,14 @@
-import dotenv from "dotenv";
-import Sentry from "@sentry/node";
+import * as dotenv from "dotenv";
+import * as Sentry from "@sentry/node";
 
 dotenv.config();
 Sentry.init({
   dsn: process.env.SENTRY_DSN,
 });
 
-import AWS from "aws-sdk";
+import * as AWS from "aws-sdk";
 import fetch from "node-fetch";
-import Twitter from "twitter";
+import * as Twitter from "twitter";
 
 const rekognition = new AWS.Rekognition();
 const twitter = new Twitter({
@@ -20,7 +20,7 @@ const twitter = new Twitter({
   /* eslint-enable @typescript-eslint/camelcase */
 });
 
-const main = async (): Promise<void> => {
+export const handler = async (): Promise<void> => {
   const twitterResponse = await twitter.get("search/tweets", {
     q: `exclude:retweets filter:images -filter:replies ${process.env.SEARCH_QUERY}`,
     // eslint-disable-next-line @typescript-eslint/camelcase
@@ -71,4 +71,4 @@ const main = async (): Promise<void> => {
   }
 };
 
-main();
+handler();

@@ -10,7 +10,6 @@
   "repository": "https://github.com/blue-hood/hyena",
   "license": "MIT",
   "author": "Hood <hato6502@gmail.com> (https://github.com/blue-hood)",
-  "type": "module",
   "scripts": {
     "eslint": "eslint '**/*.{js,ts}'",
     "fix": "yarn eslint --fix && yarn prettier --write",
