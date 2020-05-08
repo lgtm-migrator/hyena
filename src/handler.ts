@@ -20,7 +20,10 @@ export const handler = async (): Promise<void> => {
   });
 
   for (const status of twitterResponse.statuses) {
-    if (status.extended_entities?.media.length !== 1) {
+    if (
+      !status.extended_entities ||
+      status.extended_entities.media.length !== 1
+    ) {
       continue;
     }
 
