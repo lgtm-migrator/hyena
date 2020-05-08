@@ -20,13 +20,17 @@ export const handler = async (): Promise<void> => {
   });
 
   for (const status of twitterResponse.statuses) {
-    const media = status.extended_entities?.media[0];
-
-    if (!media || media.type !== "photo") {
+    if (status.extended_entities?.media.length !== 1) {
       continue;
     }
 
-    const image = await fetch(media.media_url_https);
+    const firstMedia = status.extended_entities.media[0];
+
+    if (firstMedia.type !== "photo") {
+      continue;
+    }
+
+    const image = await fetch(firstMedia.media_url_https);
     const imageBuffer = await image.buffer();
     const { Labels } = await rekognition
       .detectLabels({
