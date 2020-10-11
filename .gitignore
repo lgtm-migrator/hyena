@@ -1,4 +1,6 @@
 .env
 dist
 node_modules
+samconfig.toml
+vars.json
 yarn-error.log

@@ -1,0 +1,24 @@
+AWSTemplateFormatVersion: 2010-09-09
+Transform:
+  - AWS::Serverless-2016-10-31
+Resources:
+  Hyena:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: nodejs12.x
+      Handler: dist/index.handler
+      Environment:
+        Variables:
+          LABELS: LABELS
+          SEARCH_QUERY: SEARCH_QUERY
+          TWITTER_ACCESS_TOKEN_KEY: TWITTER_ACCESS_TOKEN_KEY
+          TWITTER_ACCESS_TOKEN_SECRET: TWITTER_ACCESS_TOKEN_SECRET
+          TWITTER_CONSUMER_KEY: TWITTER_CONSUMER_KEY
+          TWITTER_CONSUMER_SECRET: TWITTER_CONSUMER_SECRET
+      Events:
+        CloudWatchEvent:
+          Type: Schedule
+          Properties:
+            Schedule: cron(0/20 13-4 * * ? *)
+      MemorySize: 128
+      Timeout: 30

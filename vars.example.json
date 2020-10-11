@@ -1,0 +1,10 @@
+{
+  "Hyena": {
+    "LABELS": "Food,Sweets",
+    "SEARCH_QUERY": "料理 OR 菓子",
+    "TWITTER_ACCESS_TOKEN_KEY": "",
+    "TWITTER_ACCESS_TOKEN_SECRET": "",
+    "TWITTER_CONSUMER_KEY": "",
+    "TWITTER_CONSUMER_SECRET": ""
+  }
+}
