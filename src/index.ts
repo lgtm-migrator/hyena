@@ -44,8 +44,11 @@ const handler = async (): Promise<void> => {
       .promise();
 
     if (
-      !Labels?.some(({ Name }) =>
-        process.env.LABELS?.split(",").includes(Name || "")
+      !Labels?.some(
+        ({ Confidence, Name }) =>
+          Confidence &&
+          Confidence >= 50 &&
+          process.env.LABELS?.split(",").includes(Name ?? "")
       )
     ) {
       continue;
