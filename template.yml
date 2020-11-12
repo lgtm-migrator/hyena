@@ -1,7 +1,22 @@
 AWSTemplateFormatVersion: 2010-09-09
 Transform:
   - AWS::Serverless-2016-10-31
+
 Resources:
+  DynamoDBTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: Hyena
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1
+
   Hyena:
     Type: AWS::Serverless::Function
     Properties:
@@ -9,6 +24,8 @@ Resources:
       Handler: dist/index.handler
       Environment:
         Variables:
+          DYNAMODB_ENDPOINT: DYNAMODB_ENDPOINT
+          DYNAMODB_TABLE_NAME: Hyena
           LABELS: LABELS
           SEARCH_QUERY: SEARCH_QUERY
           TWITTER_ACCESS_TOKEN_KEY: TWITTER_ACCESS_TOKEN_KEY
@@ -21,4 +38,7 @@ Resources:
           Properties:
             Schedule: cron(0/20 13-4 * * ? *)
       MemorySize: 128
+      Policies:
+        - AmazonDynamoDBFullAccess
+        - AmazonRekognitionReadOnlyAccess
       Timeout: 30

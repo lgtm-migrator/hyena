@@ -1,5 +1,6 @@
 {
   "Hyena": {
+    "DYNAMODB_ENDPOINT": "dynamodb-local endpoint here, or empty string for production",
     "LABELS": "Food,Sweets",
     "SEARCH_QUERY": "料理 OR 菓子",
     "TWITTER_ACCESS_TOKEN_KEY": "",
