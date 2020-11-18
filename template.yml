@@ -36,7 +36,7 @@ Resources:
         CloudWatchEvent:
           Type: Schedule
           Properties:
-            Schedule: cron(0/20 13-4 * * ? *)
+            Schedule: cron(0/20 22-14 * * ? *)
       MemorySize: 128
       Policies:
         - AmazonDynamoDBFullAccess
