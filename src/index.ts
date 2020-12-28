@@ -1,5 +1,6 @@
 import * as AWS from "aws-sdk";
 import * as crypto from "crypto";
+import { analyzeNegaposi } from "negaposi";
 import fetch from "node-fetch";
 import * as Twitter from "twitter";
 
@@ -57,6 +58,10 @@ const handler = async (): Promise<void> => {
       .promise();
 
     if (item.Item) {
+      continue;
+    }
+
+    if (analyzeNegaposi({ text: status.text }) < 0.2) {
       continue;
     }
 
