@@ -72,7 +72,7 @@ const handler = async (): Promise<void> => {
       !Labels?.some(
         ({ Confidence, Name }) =>
           Confidence &&
-          Confidence >= 50 &&
+          Confidence >= 80 &&
           process.env.LABELS?.split(",").includes(Name ?? "")
       )
     ) {

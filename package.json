@@ -16,7 +16,8 @@
     "generate-disclaimer": "yarn licenses generate-disclaimer --ignore-platform > DISCLAIMER.md",
     "license-checker": "license-checker --excludePrivatePackages --onlyAllow 'Apache 2.0;Apache-2.0;BSD;BSD-2-Clause;BSD-3-Clause;CC0-1.0;CC-BY-3.0;CC-BY-4.0;ISC;MIT;Public Domain;Unlicense' --unknown",
     "prettier": "prettier '**/*.{html,json,md,yml}'",
-    "test": "tsc --noEmit && yarn eslint && yarn prettier --check && yarn license-checker"
+    "test": "yarn tsc --noEmit && yarn eslint && yarn prettier --check && yarn license-checker",
+    "tsc": "tsc"
   },
   "dependencies": {
     "@types/node": "^13.13.4",
